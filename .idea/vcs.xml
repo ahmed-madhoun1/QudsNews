@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="$PROJECT_DIR$/Android Applications/MVVMNewsApp" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Android Applications/QudsNews" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Android Applications/WallpaperApp" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/IMPORTANT/Android Samary/Tutorial/kotlin-exoplayer" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/IMPORTANT/AndroidApplications/Mataeim" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/IMPORTANT/AndroidApplications/MovieAPI" vcs="Git" />
+  </component>
+</project>
