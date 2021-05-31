@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.AddPostFragment">
+
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="@dimen/_15sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <RadioGroup
+                android:id="@+id/postType"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/rbText"
+                    android:layout_width="@dimen/_80sdp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/radio_flat_selector"
+                    android:button="@android:color/transparent"
+                    android:checked="true"
+                    android:gravity="center"
+                    android:paddingLeft="@dimen/_16sdp"
+                    android:paddingTop="@dimen/_3sdp"
+                    android:paddingRight="@dimen/_16sdp"
+                    android:paddingBottom="@dimen/_3sdp"
+                    android:text="Articale"
+                    android:textColor="@drawable/radio_flat_text_selector" />
+
+                <RadioButton
+                    android:id="@+id/rbPhoto"
+                    android:layout_width="@dimen/_80sdp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/radio_flat_selector"
+                    android:button="@android:color/transparent"
+                    android:gravity="center"
+                    android:paddingLeft="@dimen/_16sdp"
+                    android:paddingTop="@dimen/_3sdp"
+                    android:paddingRight="@dimen/_16sdp"
+                    android:paddingBottom="@dimen/_3sdp"
+                    android:text="Photo"
+                    android:textColor="@drawable/radio_flat_text_selector" />
+
+                <RadioButton
+                    android:id="@+id/rbVideo"
+                    android:layout_width="@dimen/_80sdp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/radio_flat_selector"
+                    android:button="@android:color/transparent"
+                    android:gravity="center"
+                    android:paddingLeft="@dimen/_16sdp"
+                    android:paddingTop="@dimen/_3sdp"
+                    android:paddingRight="@dimen/_16sdp"
+                    android:paddingBottom="@dimen/_3sdp"
+                    android:text="Video"
+                    android:textColor="@drawable/radio_flat_text_selector" />
+
+            </RadioGroup>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_5sdp"
+                android:text="Author"
+                android:textColor="@color/textColor"
+                android:textSize="@dimen/_16ssp" />
+
+            <EditText
+                android:id="@+id/edAuthor"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:background="@drawable/edit_text_background"
+                android:padding="@dimen/_5sdp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_5sdp"
+                android:text="Article title"
+                android:textColor="@color/textColor"
+                android:textSize="@dimen/_16ssp" />
+
+            <EditText
+                android:id="@+id/edTitle"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:background="@drawable/edit_text_background"
+                android:padding="@dimen/_5sdp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_5sdp"
+                android:text="Description"
+                android:textColor="@color/textColor"
+                android:textSize="@dimen/_16ssp" />
+
+            <EditText
+                android:id="@+id/edArticle"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_150sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:background="@drawable/edit_text_background"
+                android:gravity="top|start"
+                android:padding="@dimen/_5sdp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_5sdp"
+                android:text="Add image"
+                android:textColor="@color/textColor"
+                android:textSize="@dimen/_16ssp" />
+
+            <ImageView
+                android:id="@+id/imgViewAddPhoto"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_150sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:padding="@dimen/_20sdp"
+                android:src="@drawable/ic_add_photo" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_5sdp"
+                android:text="Add video"
+                android:textColor="@color/textColor"
+                android:textSize="@dimen/_16ssp" />
+
+            <ImageView
+                android:id="@+id/imgViewAddVideo"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_150sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:padding="@dimen/_20sdp"
+                android:src="@drawable/ic_add_video" />
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

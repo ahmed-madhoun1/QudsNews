@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/news_nav_graph"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/news_nav_graph"
     app:startDestination="@id/breakingNewsFragment">
 
+    <fragment
+        android:id="@+id/addPostFragment"
+        android:name="com.ahmedmadhoun.qudsnews.ui.fragments.AddPostFragment"
+        android:label="AddPostFragment" />
     <fragment
         android:id="@+id/breakingNewsFragment"
         android:name="com.ahmedmadhoun.qudsnews.ui.fragments.BreakingNewsFragment"
@@ -47,4 +53,18 @@
             android:name="article"
             app:argType="com.ahmedmadhoun.qudsnews.models.Article" />
     </fragment>
+    <fragment
+        android:id="@+id/historicalPostsFragment"
+        android:name="com.ahmedmadhoun.qudsnews.ui.fragments.HistoricalPostsFragment"
+        android:label="fragment_historical_posts"
+        tools:layout="@layout/fragment_historical_posts" >
+        <action
+            android:id="@+id/action_historicalPostsFragment_to_addPostFragment"
+            app:destination="@id/addPostFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/messagesFragment"
+        android:name="com.ahmedmadhoun.qudsnews.ui.fragments.MessagesFragment"
+        android:label="fragment_messages"
+        tools:layout="@layout/fragment_messages" />
 </navigation>

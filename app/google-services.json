@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "682999700907",
+    "project_id": "quds-news",
+    "storage_bucket": "quds-news.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:682999700907:android:05011156da4270e077c6ee",
+        "android_client_info": {
+          "package_name": "com.ahmedmadhoun.qudsnews"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "682999700907-rj90bq8kh753fa5fdm2gke3tio832g8u.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ahmedmadhoun.qudsnews",
+            "certificate_hash": "4e3ec10f07c1b701af99dde67959a64edb0c7020"
+          }
+        },
+        {
+          "client_id": "682999700907-u17radc9ih0sk9nq4s0da85uim93h1eh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDXEcEYm770bTf36byY0y8rQ97EwqNOddA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "682999700907-u17radc9ih0sk9nq4s0da85uim93h1eh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
