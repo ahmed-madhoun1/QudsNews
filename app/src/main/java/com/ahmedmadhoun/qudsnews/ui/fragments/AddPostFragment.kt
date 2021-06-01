@@ -24,10 +24,12 @@ class AddPostFragment : Fragment(R.layout.fragment_add_post) {
         val author = edArticle.text.toString()
         val article = edAuthor.text.toString()
 
-       if(rbText.isSelected){
-           addTextPost(title, article, author)
-       }else{
-           Toast.makeText(requireActivity(), "Text POst not selected", Toast.LENGTH_SHORT).show()
+       btnAddPost.setOnClickListener {
+           if(rbText.isSelected){
+               addTextPost(title, article, author)
+           }else{
+               Toast.makeText(requireActivity(), "Text POst not selected", Toast.LENGTH_SHORT).show()
+           }
        }
 
     }
