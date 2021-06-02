@@ -20,6 +20,11 @@ import com.vansuita.pickimage.bundle.PickSetup
 import com.vansuita.pickimage.dialog.PickImageDialog
 import com.vansuita.pickimage.enums.EPickType
 import kotlinx.android.synthetic.main.fragment_add_post.*
+import kotlinx.android.synthetic.main.fragment_add_post.rbPhoto
+import kotlinx.android.synthetic.main.fragment_add_post.rbText
+import kotlinx.android.synthetic.main.fragment_add_post.rbVideo
+import kotlinx.android.synthetic.main.fragment_add_post.rgPostType
+import kotlinx.android.synthetic.main.fragment_historical_posts.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -54,7 +59,21 @@ class AddPostFragment : Fragment(R.layout.fragment_add_post) {
         }
 
         btnAddPost.setOnClickListener {
-            addPhotoPost(edTitle.text.toString(), edDescription.text.toString(), edAuthor.text.toString())
+            rgPostType.setOnCheckedChangeListener { group, checkedId ->
+                when (checkedId) {
+                    rbText.id -> {
+                        Toast.makeText(requireActivity(), "TEXT", Toast.LENGTH_SHORT).show()
+                        addTextPost(edTitle.text.toString(), edDescription.text.toString(), edAuthor.text.toString())
+                    }
+                    rbPhoto.id -> {
+                        Toast.makeText(requireActivity(), "PHOTO", Toast.LENGTH_SHORT).show()
+                        addPhotoPost(edTitle.text.toString(), edDescription.text.toString(), edAuthor.text.toString())
+                    }
+                    rbVideo.id -> {
+                        addVideoPost(edTitle.text.toString(), edDescription.text.toString(), edAuthor.text.toString())
+                    }
+                }
+            }
         }
 
     }
@@ -140,32 +159,40 @@ class AddPostFragment : Fragment(R.layout.fragment_add_post) {
                     firebaseStorage.reference.child("Posts").child("VideoPosts")
                         .child(UUID.randomUUID().toString()).putFile(videoUri)
                         .addOnSuccessListener { taskSnapshot ->
-                            val postID = firestore.collection("VideoPosts").document().id
-                            firestore.collection("VideoPosts").document(postID)
-                                .set(
-                                    VideoPost(
-                                        postID,
-                                        taskSnapshot.storage.path,
-                                        title,
-                                        description,
-                                        author
+                            taskSnapshot.storage.downloadUrl.addOnSuccessListener {uri->
+                                val postID = firestore.collection("VideoPosts").document().id
+                                firestore.collection("VideoPosts").document(postID)
+                                    .set(
+                                        VideoPost(
+                                            postID,
+                                            uri.toString(),
+                                            title,
+                                            description,
+                                            author
+                                        )
                                     )
-                                )
-                                .addOnSuccessListener {
-                                    Toast.makeText(
-                                        requireActivity(),
-                                        "Video Post Added Successfully",
-                                        Toast.LENGTH_SHORT
-                                    ).show()
-                                    requireActivity().onBackPressed()
-                                }.addOnFailureListener {
-                                    Log.e("TAG", "onViewCreated: ${it.message.toString()}")
-                                    Toast.makeText(
-                                        requireActivity(),
-                                        it.message.toString(),
-                                        Toast.LENGTH_SHORT
-                                    ).show()
-                                }
+                                    .addOnSuccessListener {
+                                        Toast.makeText(
+                                            requireActivity(),
+                                            "Video Post Added Successfully",
+                                            Toast.LENGTH_SHORT
+                                        ).show()
+                                        requireActivity().onBackPressed()
+                                    }.addOnFailureListener {
+                                        Log.e("TAG", "onViewCreated: ${it.message.toString()}")
+                                        Toast.makeText(
+                                            requireActivity(),
+                                            it.message.toString(),
+                                            Toast.LENGTH_SHORT
+                                        ).show()
+                                    }
+                            }.addOnFailureListener {
+                                Toast.makeText(
+                                    requireActivity(),
+                                    it.message.toString(),
+                                    Toast.LENGTH_SHORT
+                                ).show()
+                            }
                         }.addOnFailureListener {
                             Log.e("TAG", "onViewCreated: ${it.message.toString()}")
                             Toast.makeText(

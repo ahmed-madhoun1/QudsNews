@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.View
 import android.widget.Toast
+import androidx.core.view.size
 import androidx.navigation.fragment.findNavController
 import com.ahmedmadhoun.qudsnews.R
 import com.ahmedmadhoun.qudsnews.adapters.ArticlePostsAdapter
@@ -41,12 +42,10 @@ class HistoricalPostsFragment : Fragment(R.layout.fragment_historical_posts) {
             when (checkedId) {
                 rbText.id -> {
                     Toast.makeText(requireActivity(), "TEXT", Toast.LENGTH_SHORT).show()
-                    photoPostsList.clear()
                     getTextPostsFromFirestore()
                 }
                 rbPhoto.id -> {
                     Toast.makeText(requireActivity(), "PHOTO", Toast.LENGTH_SHORT).show()
-                    articlePostsList.clear()
                     getPhotoPostsFromFirestore()
                 }
                 rbVideo.id -> {
@@ -69,7 +68,8 @@ class HistoricalPostsFragment : Fragment(R.layout.fragment_historical_posts) {
 
     private fun getTextPostsFromFirestore() {
         recyclerView.apply {
-            photoPostsAdapter.notifyDataSetChanged()
+            adapter = null
+            articlePostsAdapter.notifyItemRangeRemoved(0, size)
             setHasFixedSize(true)
             adapter = articlePostsAdapter
         }
@@ -95,7 +95,8 @@ class HistoricalPostsFragment : Fragment(R.layout.fragment_historical_posts) {
 
     private fun getPhotoPostsFromFirestore() {
         recyclerView.apply {
-            articlePostsAdapter.notifyDataSetChanged()
+            adapter = null
+            articlePostsAdapter.notifyItemRangeRemoved(0, size)
             setHasFixedSize(true)
             adapter = photoPostsAdapter
         }
