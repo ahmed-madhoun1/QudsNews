@@ -9,7 +9,7 @@ data class PhotoPost(
     val id: String,
     val photo: String,
     val title: String,
-    val article: String,
+    val description: String,
     val author: String,
     val created: Long = System.currentTimeMillis()
 ) : Parcelable {

@@ -42,7 +42,7 @@
                     android:paddingTop="@dimen/_3sdp"
                     android:paddingRight="@dimen/_16sdp"
                     android:paddingBottom="@dimen/_3sdp"
-                    android:text="Articale"
+                    android:text="Article"
                     android:textColor="@drawable/radio_flat_text_selector" />
 
                 <RadioButton
@@ -116,7 +116,7 @@
                 android:textSize="@dimen/_16ssp" />
 
             <EditText
-                android:id="@+id/edArticle"
+                android:id="@+id/edDescription"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_150sdp"
                 android:layout_marginBottom="@dimen/_10sdp"

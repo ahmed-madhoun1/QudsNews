@@ -9,7 +9,7 @@ import java.text.DateFormat
 data class VideoPost(
     val id: String,
     val title: String,
-    val article: String,
+    val description: String,
     val author: String,
     val created: Long = System.currentTimeMillis()
 ) : Parcelable {
