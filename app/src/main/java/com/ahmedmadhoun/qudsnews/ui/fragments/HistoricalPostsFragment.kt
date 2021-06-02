@@ -41,10 +41,12 @@ class HistoricalPostsFragment : Fragment(R.layout.fragment_historical_posts) {
             when (checkedId) {
                 rbText.id -> {
                     Toast.makeText(requireActivity(), "TEXT", Toast.LENGTH_SHORT).show()
+                    photoPostsList.clear()
                     getTextPostsFromFirestore()
                 }
                 rbPhoto.id -> {
                     Toast.makeText(requireActivity(), "PHOTO", Toast.LENGTH_SHORT).show()
+                    articlePostsList.clear()
                     getPhotoPostsFromFirestore()
                 }
                 rbVideo.id -> {
@@ -67,7 +69,6 @@ class HistoricalPostsFragment : Fragment(R.layout.fragment_historical_posts) {
 
     private fun getTextPostsFromFirestore() {
         recyclerView.apply {
-            photoPostsList.clear()
             photoPostsAdapter.notifyDataSetChanged()
             setHasFixedSize(true)
             adapter = articlePostsAdapter
@@ -94,7 +95,6 @@ class HistoricalPostsFragment : Fragment(R.layout.fragment_historical_posts) {
 
     private fun getPhotoPostsFromFirestore() {
         recyclerView.apply {
-            articlePostsList.clear()
             articlePostsAdapter.notifyDataSetChanged()
             setHasFixedSize(true)
             adapter = photoPostsAdapter
