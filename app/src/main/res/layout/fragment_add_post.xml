@@ -23,7 +23,7 @@
             android:orientation="vertical">
 
             <RadioGroup
-                android:id="@+id/postType"
+                android:id="@+id/rgPostType"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
@@ -148,8 +148,8 @@
                 android:textColor="@color/textColor"
                 android:textSize="@dimen/_16ssp" />
 
-            <ImageView
-                android:id="@+id/imgViewAddVideo"
+            <VideoView
+                android:id="@+id/videoViewAddVideo"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_150sdp"
                 android:layout_marginBottom="@dimen/_10sdp"

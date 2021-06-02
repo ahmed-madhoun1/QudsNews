@@ -8,6 +8,7 @@ import java.text.DateFormat
 @Parcelize
 data class VideoPost(
     val id: String,
+    val video: String,
     val title: String,
     val description: String,
     val author: String,
