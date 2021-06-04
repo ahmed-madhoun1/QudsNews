@@ -59,19 +59,18 @@ class AddPostFragment : Fragment(R.layout.fragment_add_post) {
         }
 
         btnAddPost.setOnClickListener {
-            rgPostType.setOnCheckedChangeListener { group, checkedId ->
-                when (checkedId) {
-                    rbText.id -> {
-                        Toast.makeText(requireActivity(), "TEXT", Toast.LENGTH_SHORT).show()
-                        addTextPost(edTitle.text.toString(), edDescription.text.toString(), edAuthor.text.toString())
-                    }
-                    rbPhoto.id -> {
-                        Toast.makeText(requireActivity(), "PHOTO", Toast.LENGTH_SHORT).show()
-                        addPhotoPost(edTitle.text.toString(), edDescription.text.toString(), edAuthor.text.toString())
-                    }
-                    rbVideo.id -> {
-                        addVideoPost(edTitle.text.toString(), edDescription.text.toString(), edAuthor.text.toString())
-                    }
+            when {
+                rbText.isChecked -> {
+                    Toast.makeText(requireActivity(), "TEXT", Toast.LENGTH_SHORT).show()
+                    addTextPost(edTitle.text.toString(), edDescription.text.toString(), edAuthor.text.toString())
+                }
+                rbPhoto.isChecked -> {
+                    Toast.makeText(requireActivity(), "PHOTO", Toast.LENGTH_SHORT).show()
+                    addPhotoPost(edTitle.text.toString(), edDescription.text.toString(), edAuthor.text.toString())
+                }
+                else -> {
+                    Toast.makeText(requireActivity(), "VIDEOS", Toast.LENGTH_SHORT).show()
+                    addVideoPost(edTitle.text.toString(), edDescription.text.toString(), edAuthor.text.toString())
                 }
             }
         }

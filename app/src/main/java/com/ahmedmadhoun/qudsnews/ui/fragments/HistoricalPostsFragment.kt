@@ -9,8 +9,10 @@ import androidx.navigation.fragment.findNavController
 import com.ahmedmadhoun.qudsnews.R
 import com.ahmedmadhoun.qudsnews.adapters.ArticlePostsAdapter
 import com.ahmedmadhoun.qudsnews.adapters.PhotoPostsAdapter
+import com.ahmedmadhoun.qudsnews.adapters.VideoPostsAdapter
 import com.ahmedmadhoun.qudsnews.data.PhotoPost
 import com.ahmedmadhoun.qudsnews.data.TextPost
+import com.ahmedmadhoun.qudsnews.data.VideoPost
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.fragment_breaking_news.*
 import kotlinx.android.synthetic.main.fragment_historical_posts.*
@@ -22,6 +24,9 @@ class HistoricalPostsFragment : Fragment(R.layout.fragment_historical_posts) {
 
     private lateinit var photoPostsList: ArrayList<PhotoPost>
     private lateinit var photoPostsAdapter: PhotoPostsAdapter
+
+    private lateinit var videoPostsList: ArrayList<VideoPost>
+    private lateinit var videoPostsAdapter: VideoPostsAdapter
 
     private val firestore: FirebaseFirestore by lazy {
         FirebaseFirestore.getInstance()
@@ -36,6 +41,9 @@ class HistoricalPostsFragment : Fragment(R.layout.fragment_historical_posts) {
         photoPostsAdapter = PhotoPostsAdapter()
         photoPostsList = ArrayList()
 
+        videoPostsAdapter = VideoPostsAdapter()
+        videoPostsList = ArrayList()
+
         rbText.isChecked = true
 
         rgPostType.setOnCheckedChangeListener { group, checkedId ->
@@ -49,7 +57,8 @@ class HistoricalPostsFragment : Fragment(R.layout.fragment_historical_posts) {
                     getPhotoPostsFromFirestore()
                 }
                 rbVideo.id -> {
-
+                    Toast.makeText(requireActivity(), "VIDEOS", Toast.LENGTH_SHORT).show()
+                    getVideoPostsFromFirestore()
                 }
             }
         }
@@ -118,6 +127,34 @@ class HistoricalPostsFragment : Fragment(R.layout.fragment_historical_posts) {
                 )
             }
             photoPostsAdapter.differ.submitList(photoPostsList)
+        }
+    }
+
+    private fun getVideoPostsFromFirestore() {
+        recyclerView.apply {
+            adapter = null
+            videoPostsAdapter.notifyItemRangeRemoved(0, size)
+            setHasFixedSize(true)
+            adapter = videoPostsAdapter
+        }
+        firestore.collection("VideoPosts").addSnapshotListener { value, error ->
+            if (error?.message?.isNotEmpty() == true) {
+                Toast.makeText(requireActivity(), error.message.toString(), Toast.LENGTH_SHORT)
+                    .show()
+                return@addSnapshotListener
+            }
+            value?.documents?.forEach { documentSnapshot ->
+                videoPostsList.add(
+                    VideoPost(
+                        id = documentSnapshot.get("id").toString(),
+                        title = documentSnapshot.get("title").toString(),
+                        description = documentSnapshot.get("description").toString(),
+                        author = documentSnapshot.get("author").toString(),
+                        video = documentSnapshot.get("video").toString()
+                    )
+                )
+            }
+            videoPostsAdapter.differ.submitList(videoPostsList)
         }
     }
 

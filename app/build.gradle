@@ -98,4 +98,10 @@ dependencies {
     // Image Picker
     implementation 'com.github.jrvansuita:PickImage:+'
 
+    // Exo player
+    implementation 'com.google.android.exoplayer:exoplayer:2.14.0'
+    implementation 'com.google.android.exoplayer:exoplayer-core:2.14.0'
+    implementation 'com.google.android.exoplayer:exoplayer-dash:2.14.0'
+    implementation 'com.google.android.exoplayer:exoplayer-ui:2.14.0'
+
 }
