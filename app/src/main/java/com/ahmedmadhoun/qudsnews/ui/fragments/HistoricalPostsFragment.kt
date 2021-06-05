@@ -45,6 +45,7 @@ class HistoricalPostsFragment : Fragment(R.layout.fragment_historical_posts) {
         videoPostsList = ArrayList()
 
         rbText.isChecked = true
+        getTextPostsFromFirestore()
 
         rgPostType.setOnCheckedChangeListener { group, checkedId ->
             when (checkedId) {
