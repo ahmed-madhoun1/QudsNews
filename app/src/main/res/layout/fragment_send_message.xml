@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/_15sdp"
+    tools:context=".ui.fragments.SendMessageFragment">
+
+    <TextView
+        android:id="@+id/tvAddYourMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add your message"
+        android:textColor="@color/textColor"
+        android:textSize="@dimen/_16ssp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/edTitleMessage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:background="@drawable/edit_text_background"
+        android:gravity="start"
+        android:hint="Message Title"
+        android:padding="@dimen/_5sdp"
+        app:layout_constraintStart_toStartOf="@id/tvAddYourMessage"
+        app:layout_constraintTop_toBottomOf="@+id/tvAddYourMessage" />
+
+    <EditText
+        android:id="@+id/edMessage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:background="@drawable/edit_text_background"
+        android:gravity="top|start"
+        android:hint="Message"
+        android:minHeight="@dimen/_200sdp"
+        android:padding="@dimen/_5sdp"
+        app:layout_constraintStart_toStartOf="@id/tvAddYourMessage"
+        app:layout_constraintTop_toBottomOf="@+id/edTitleMessage" />
+
+    <Button
+        android:id="@+id/btnSendMessage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:text="Send Message"
+        app:layout_constraintEnd_toEndOf="@+id/edMessage"
+        app:layout_constraintStart_toStartOf="@+id/edMessage"
+        app:layout_constraintTop_toBottomOf="@+id/edMessage" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -9,6 +9,7 @@ import android.widget.ImageView
 import android.widget.MediaController
 import android.widget.Toast
 import android.widget.VideoView
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import com.ahmedmadhoun.qudsnews.R
 import com.ahmedmadhoun.qudsnews.data.PhotoPost
@@ -55,6 +56,29 @@ class AddPostFragment : Fragment(R.layout.fragment_add_post) {
         videoViewAddVideo.setOnClickListener {
             setupVideoPicker(videoViewAddVideo) { uri ->
                 videoUri = uri
+            }
+        }
+
+        rgPostType.setOnCheckedChangeListener { group, checkedId ->
+            when(checkedId){
+                rbText.id -> {
+                    btnAddImage.isVisible = false
+                    imgViewAddPhoto.isVisible = false
+                    btnAddVideo.isVisible = false
+                    videoViewAddVideo.isVisible = false
+                }
+                rbPhoto.id -> {
+                    btnAddImage.isVisible = true
+                    imgViewAddPhoto.isVisible = true
+                    btnAddVideo.isVisible = false
+                    videoViewAddVideo.isVisible = false
+                }
+                rbVideo.id -> {
+                    btnAddImage.isVisible = false
+                    imgViewAddPhoto.isVisible = false
+                    btnAddVideo.isVisible = true
+                    videoViewAddVideo.isVisible = true
+                }
             }
         }
 

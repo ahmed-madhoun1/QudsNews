@@ -24,6 +24,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_6sdp"
+        android:layout_marginBottom="@dimen/_20sdp"
         android:ellipsize="end"
         android:maxLines="5"
         android:text="Description"
@@ -34,32 +35,19 @@
         app:layout_constraintTop_toBottomOf="@id/tvTitle" />
 
     <TextView
-        android:id="@+id/tvAuthor"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_6sdp"
-        android:ellipsize="end"
-        android:lines="1"
-        android:text="Author"
-        android:textColor="@color/textColor"
-        android:textSize="@dimen/_10ssp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvDescription" />
-
-    <TextView
         android:id="@+id/tvDate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_6sdp"
+        android:layout_marginBottom="@dimen/_20sdp"
         android:ellipsize="end"
-        android:lines="1"
+        android:maxLines="5"
         android:text="Date"
         android:textColor="@color/textColor"
         android:textSize="@dimen/_10ssp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvAuthor" />
+        app:layout_constraintTop_toBottomOf="@id/tvDescription" />
 
     <View
         android:layout_width="match_parent"

@@ -124,12 +124,14 @@
                 android:gravity="top|start"
                 android:padding="@dimen/_5sdp" />
 
-            <TextView
-                android:layout_width="wrap_content"
+            <Button
+                android:id="@+id/btnAddImage"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/_5sdp"
                 android:text="Add image"
-                android:textColor="@color/textColor"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
                 android:textSize="@dimen/_16ssp" />
 
             <ImageView
@@ -140,12 +142,13 @@
                 android:padding="@dimen/_20sdp"
                 android:src="@drawable/ic_add_photo" />
 
-            <TextView
-                android:layout_width="wrap_content"
+            <Button
+                android:id="@+id/btnAddVideo"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/_5sdp"
                 android:text="Add video"
-                android:textColor="@color/textColor"
+                android:textAllCaps="false"
                 android:textSize="@dimen/_16ssp" />
 
             <VideoView
@@ -157,10 +160,10 @@
                 android:src="@drawable/ic_add_video" />
 
             <Button
+                android:id="@+id/btnAddPost"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Add Post"
-                android:id="@+id/btnAddPost"/>
+                android:text="Add Post" />
 
         </LinearLayout>
 
