@@ -21,15 +21,17 @@ class SendMessageFragment : Fragment(R.layout.fragment_send_message) {
         super.onViewCreated(view, savedInstanceState)
 
         btnSendMessage.setOnClickListener {
-            val messageID = firestore.collection("Messages").document().id
-            firestore.collection("Messages").document(messageID)
-                .set(Message(messageID, edTitleMessage.text.toString(), edMessage.text.toString()))
-                .addOnSuccessListener {
-                    Toast.makeText(requireActivity(), "Message Sent Successfully", Toast.LENGTH_SHORT).show()
-                    requireActivity().onBackPressed()
-                }
+            if(edMessage.text.toString().isNotEmpty() && edTitleMessage.text.toString().isNotEmpty()){
+                val messageID = firestore.collection("Messages").document().id
+                firestore.collection("Messages").document(messageID)
+                    .set(Message(messageID, edTitleMessage.text.toString(), edMessage.text.toString()))
+                    .addOnSuccessListener {
+                        Toast.makeText(requireActivity(), "Message Sent Successfully", Toast.LENGTH_SHORT).show()
+                        requireActivity().onBackPressed()
+                    }
+            }else{
+                Toast.makeText(requireActivity(), "Fill All The Fields", Toast.LENGTH_SHORT).show()
+            }
         }
-
     }
-
 }

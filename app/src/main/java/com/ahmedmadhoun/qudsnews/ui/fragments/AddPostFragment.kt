@@ -85,16 +85,28 @@ class AddPostFragment : Fragment(R.layout.fragment_add_post) {
         btnAddPost.setOnClickListener {
             when {
                 rbText.isChecked -> {
-                    Toast.makeText(requireActivity(), "TEXT", Toast.LENGTH_SHORT).show()
-                    addTextPost(edTitle.text.toString(), edDescription.text.toString(), edAuthor.text.toString())
+                    if(edTitle.text.toString().isNotEmpty() && edAuthor.text.toString().isNotEmpty() && edDescription.text.toString().isNotEmpty()){
+                        addTextPost(edTitle.text.toString(), edDescription.text.toString(), edAuthor.text.toString())
+                        Toast.makeText(requireActivity(), "Post Added", Toast.LENGTH_SHORT).show()
+                    }else{
+                        Toast.makeText(requireActivity(), "Fill All The Fields", Toast.LENGTH_SHORT).show()
+                    }
                 }
                 rbPhoto.isChecked -> {
-                    Toast.makeText(requireActivity(), "PHOTO", Toast.LENGTH_SHORT).show()
-                    addPhotoPost(edTitle.text.toString(), edDescription.text.toString(), edAuthor.text.toString())
+                    if(edTitle.text.toString().isNotEmpty() && edAuthor.text.toString().isNotEmpty() && edDescription.text.toString().isNotEmpty()){
+                        addPhotoPost(edTitle.text.toString(), edDescription.text.toString(), edAuthor.text.toString())
+                        Toast.makeText(requireActivity(), "Post Added", Toast.LENGTH_SHORT).show()
+                    }else{
+                        Toast.makeText(requireActivity(), "Fill All The Fields", Toast.LENGTH_SHORT).show()
+                    }
                 }
                 else -> {
-                    Toast.makeText(requireActivity(), "VIDEOS", Toast.LENGTH_SHORT).show()
-                    addVideoPost(edTitle.text.toString(), edDescription.text.toString(), edAuthor.text.toString())
+                    if(edTitle.text.toString().isNotEmpty() && edAuthor.text.toString().isNotEmpty() && edDescription.text.toString().isNotEmpty()){
+                        addVideoPost(edTitle.text.toString(), edDescription.text.toString(), edAuthor.text.toString())
+                        Toast.makeText(requireActivity(), "Post Added", Toast.LENGTH_SHORT).show()
+                    }else{
+                        Toast.makeText(requireActivity(), "Fill All The Fields", Toast.LENGTH_SHORT).show()
+                    }
                 }
             }
         }
